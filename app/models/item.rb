@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :item_shipped_date
 
   belongs_to :user
+  has_one    :purchase_record
 
   validates :item_name, :item_description, :item_price, :image, presence: true
   validates :item_category_id, :item_condition_id, :item_shipping_fee_id, :item_shipped_date_id, :ship_region_id, numericality: { other_than: 1 , message: "can't be blank"}
