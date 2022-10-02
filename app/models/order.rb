@@ -6,7 +6,8 @@ class Order
                 :shipping_address_city,
                 :shipping_address_house_number,
                 :shipping_address_building_name,
-                :shipping_address_phone_number
+                :shipping_address_phone_number,
+                :token
 
   with_options presence: true do
     validates :user_id
@@ -16,6 +17,7 @@ class Order
     validates :shipping_address_city
     validates :shipping_address_house_number
     validates :shipping_address_phone_number, format: { with: /\A\d{10,11}\z/}
+    validates :token
   end
 
   def save
